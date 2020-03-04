@@ -1,0 +1,378 @@
+//TODO: Add mobile styling
+
+body {
+  .navbar {
+    width: 100%;
+    height: $rem85;
+    background: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .navitem {
+      margin: 0 $rem24;
+
+      &.space {
+        margin: 0 $rem48;
+      }
+    }
+  }
+
+  .content {
+    .contentBlock {
+      height: $rem800;
+
+      &.home {
+        height: $rem880;
+        box-sizing: border-box;
+        padding: $rem160 $rem96 $rem32 $rem248;
+        background: $midnight;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: self-start;
+        overflow: hidden;
+
+        .copperCLogo {
+          position: absolute;
+          top: $rem112;
+          left: $rem72;
+        }
+
+        .homeText {
+          align-self: center;
+          z-index: 1;
+          padding: $rem88 $rem48 0 0;
+
+          .goBeyond {
+            color: $white;
+            .purple {
+              color: $violet;
+            }
+          }
+
+          .goBeyondSubtext {
+            color: $white;
+            padding: $rem24 0;
+          }
+
+          .buttonWrap {
+            margin-top: $rem104;
+          }
+        }
+
+        .homeImage {
+          width: 440px;
+        }
+      }
+
+      &.features {
+        background: $white;
+        position: relative;
+        padding: $rem120 $rem248;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+
+        .abePoint {
+          position: absolute;
+          top: $rem120;
+          left: 0;
+        }
+
+        .featureText {
+          flex: 1 1 50%;
+          padding-right: $rem72;
+          box-sizing: border-box;
+        }
+
+        .featureItems {
+          flex: 1 1 50%;
+          height: 100%;
+          padding: $rem24;
+          box-sizing: border-box;
+          background: $realWhite;
+          border-radius: $rem12;
+          box-shadow: 0 $rem2 $rem10 $midnight-20;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-start;
+
+          .featureItem {
+            padding: $rem24 0;
+            display: flex;
+            justify-content: flex-start;
+            align-items: self-start;
+
+            .iconImg {
+              padding-right: $rem24;
+            }
+
+            .iconText {
+
+              .iconHeading {
+                font-size: $rem20;
+              }
+            }
+          }
+        }
+      }
+
+      &.security {
+        background: $mint;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        padding: $rem48 0;
+        position: relative;
+
+        .abeSign {
+          position: absolute;
+          right: $rem48;
+          bottom: $rem160;
+        }
+
+        .safetySecurity {
+          max-width: $rem620;
+          text-align: center;
+          background: $white;
+          border-radius: $rem12;
+          box-shadow: 0 $rem2 $rem6 $midnight-20;
+          height: 100%;
+          padding: $rem24 $rem64;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+
+          .securityItem {
+            margin: $rem18 0;
+
+            h2 {
+              padding: $rem12 0;
+            }
+
+            p {
+              font-size: $rem20;
+              padding: 0 $rem24;
+            }
+          }
+        }
+      }
+
+      &.testimonials {
+        height: $rem604;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .left {
+          flex: 1 1 50%;
+          height: 100%;
+          background: $midnight;
+          text-align: center;
+          color: $white;
+          box-sizing: border-box;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .flexContainer {
+            padding-top: $rem96;
+
+            .join {
+              font-size: $rem48;
+              font-weight: $light;
+            }
+
+            .fivestar {
+              padding: $rem32 0 $rem24;
+            }
+
+            .appStoreIcons {
+              padding-top: $rem72;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              .appStoreLink {
+                img {
+                  padding: 0 $rem6;
+                  height: $rem48;
+                }
+              }
+            }
+          }
+        }
+
+        .right {
+          flex: 1 1 50%;
+          height: 100%;
+          background: $violet;
+          color: $white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: $rem16 $rem24 0 $rem120;
+          box-sizing: border-box;
+
+          .flexContainer {
+            position: relative;
+
+            .testimonial {
+              font-size: $rem36;
+            }
+            .quote {
+              position: absolute;
+              left: -$rem64;
+              top: 0;
+            }
+            .upsideDownQuote {
+              -moz-transform: rotateZ(180deg);
+              -webkit-transform: rotateZ(180deg);
+              transform: rotateZ(180deg);
+              display: inline;
+            }
+
+            .quoteBy {
+              margin: $rem16 0;
+            }
+          }
+        }
+      }
+    }
+
+    .accordion {
+      padding: $rem36 $rem248;
+
+      &:last-child {
+        background: yellow;
+        border-bottom: none !important;
+      }
+      .leaf {
+        box-sizing: border-box;
+        padding: $rem16 $rem48;
+        border-bottom: $rem2 solid $midnight-20;
+
+        .leafHeading {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin: $rem16 0;
+
+          .accordionToggle {
+            display: inline-block;
+            min-width: $rem56;
+            min-height: $rem56;
+            border: $rem4 solid $midnight-20;
+            border-radius: 50%;
+            box-sizing: border-box;
+            transition: transform 0.5s;
+
+            &.rotate {
+              transform: rotateZ(90deg);
+            }
+
+            .lines {
+              position: relative;
+              height: 100%;
+              .line {
+                position: absolute;
+                top: $rem21;
+                left: $rem11;
+                display: inline-block;
+                width: $rem20;
+                border: $rem2 solid $fauxMidnight20;
+                transition: 0.5s;
+
+                &.plus {
+                  transform: rotateZ(90deg);
+                }
+
+                &.rotate {
+                  opacity: 0;
+                }
+              }
+            }
+          }
+        }
+
+        .leafWrapper {
+          height: 0;
+          overflow: hidden;
+          transition: height 0.5s;
+        }
+      }
+    }
+  }
+
+  .footer {
+    height: $rem460;
+    background: $midnight;
+    padding: $rem16 $rem248;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .footerNav{
+      flex: 1 1 25%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      //margin-right: $rem160;
+
+      .navitem {
+        color: $white;
+        margin: $rem8 0;
+
+        &.space {
+          margin-bottom: $rem48;
+        }
+
+        &.inline {
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+
+      .socialIcons {
+        .instaIcon {
+          margin-left: $rem8;
+        }
+      }
+    }
+
+    .callToAction {
+      flex: 1 1 75%;
+      color: $white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-top: $rem80;
+
+      h3 {
+        font-size: $rem32;
+        text-align: center;
+      }
+
+      .joinWaitlist {
+        font-size: $rem20;
+      }
+
+      .buttonWrap {
+        margin: $rem36 0 $rem96;
+      }
+
+      .address {
+        justify-self: flex-end;
+      }
+    }
+  }
+}

@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: $walsheim;
+}
+
+a {
+  cursor: default;
+  color: $midnight;
+  line-height: 1.2;
+  font-size: $rem16;
+  font-weight: $bold;
+
+  &.button {
+    line-height: 1.5;
+    font-size: $rem12;
+    color: $white;
+    font-weight: $light;
+    padding: $rem8 $rem16 !important;
+    background: $violet;
+    border-radius: $rem16;
+  }
+}
+
+h1 {
+  font-size: $rem56;
+  line-height: 1.2;
+  font-weight: $bold;
+}
+
+h2 {
+  font-size: $rem32;
+  line-height: 1.2;
+  font-weight: $bold;
+}
+
+h3 {
+  font-size: $rem24;
+  line-height: 1.5;
+  font-weight: $regular;
+}
+
+p {
+  font-size: $rem16;
+  line-height: 1.5;
+  font-weight: $regular;
+}
+
+.buttonWrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  button {
+    flex: 0 0 auto;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: $rem18;
+    line-height: 1.2;
+    color: $white;
+    font-weight: $light;
+    background: $violet;
+    padding: $rem16 $rem28;
+    border-radius: $rem28;
+
+    &.withIcon {
+
+      & > * {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .icon {
+        padding-left: $rem16;
+        height: $rem24;
+      }
+    }
+  }
+
+  .inputWrap {
+    flex: 0 0 auto;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    margin-left: $rem36;
+
+    label {
+      position: absolute;
+      top: $rem22;
+      left: $rem28;
+      font-size: $rem16;
+      line-height: 1.1;
+      font-weight: $light;
+      color: $midnight;
+    }
+
+    input {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      box-sizing: border-box;
+      background: $white;
+      border: 2px solid $violet;
+      color: $midnight;
+      font-size: $rem18;
+      line-height: 1.2;
+      font-weight: $light;
+      padding: $rem16 $rem64 $rem16 $rem28;
+      border-radius: $rem28;
+    }
+  }
+
+  &.small {
+    button {
+      padding: $rem10 $rem22;
+    }
+
+    .inputWrap {
+      margin-left: $rem18;
+      label {
+        top: $rem16;
+        left: $rem28;
+      }
+
+      input {
+        padding: $rem10 $rem22;
+      }
+    }
+
+  }
+}
