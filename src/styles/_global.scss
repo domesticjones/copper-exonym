@@ -31,6 +31,7 @@ a {
     padding: $rem8 $rem16 !important;
     background: $violet;
     border-radius: $rem16;
+    cursor: pointer;
   }
 }
 
@@ -75,6 +76,12 @@ p {
     background: $violet;
     padding: $rem16 $rem28;
     border-radius: $rem28;
+    margin-left: $rem36;
+    cursor: pointer;
+
+    @media only screen and (max-width: $mediaPhones) {
+      margin-left: 0;
+    }
 
     &.withIcon {
 
@@ -94,7 +101,6 @@ p {
     display: inline-block;
     vertical-align: middle;
     position: relative;
-    margin-left: $rem36;
 
     label {
       position: absolute;
@@ -104,6 +110,10 @@ p {
       line-height: 1.1;
       font-weight: $light;
       color: $midnight;
+
+      @media only screen and (max-width: $mediaPhones) {
+        display: none;
+      }
     }
 
     input {
@@ -127,7 +137,6 @@ p {
     }
 
     .inputWrap {
-      margin-left: $rem18;
       label {
         top: $rem16;
         left: $rem28;

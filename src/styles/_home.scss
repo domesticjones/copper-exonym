@@ -1,31 +1,169 @@
-//TODO: Add mobile styling
-
 body {
-  .navbar {
-    width: 100%;
-    height: $rem85;
-    background: $white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  #navbarLogo {
+    display: none;
+  }
 
-    .navitem {
-      margin: 0 $rem24;
+  .navbarWrapper {
+    position: relative;
 
-      &.space {
-        margin: 0 $rem48;
+    .navbar {
+      z-index: 1000;
+      width: 100%;
+      height: $rem85;
+      background: $white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      box-shadow: 0 2px 4px -4px $midnight-80;
+
+      &.mobile {
+        justify-content: space-between;
+
+        &.open {
+          box-shadow: unset;
+        }
+      }
+
+      .navitem {
+        margin: 0 $rem24;
+        cursor: pointer;
+
+        &.mobile {
+          margin: 0 $rem24;
+
+          img {
+            height: $rem40;
+            width: auto;
+          }
+        }
+
+        &.space {
+          margin: 0 $rem48;
+        }
+      }
+
+      .buttonAndNav {
+        & > * {
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        .navitemButton {
+          font-size: $rem16;
+
+          @media only screen and (max-width: 340px) {
+            font-size: $rem12;
+          }
+        }
+
+        .navburger {
+          width: $rem40;
+          height: $rem56;
+          position: relative;
+          margin: 0 $rem24;
+          cursor: pointer;
+
+          span {
+            display: block;
+            position: absolute;
+            height: $rem8;
+            width: 100%;
+            background: $violet;
+            border-radius: $rem8;
+            opacity: 1;
+            left: 0;
+            -webkit-transition: transform .25s ease-in-out, top .25s ease-in-out, width .25s ease-in-out, left .25s ease-in-out;
+            -moz-transition: transform .25s ease-in-out, top .25s ease-in-out, width .25s ease-in-out, left .25s ease-in-out;
+            -o-transition: transform .25s ease-in-out, top .25s ease-in-out, width .25s ease-in-out, left .25s ease-in-out;
+            transition: transform .25s ease-in-out, top .25s ease-in-out, width .25s ease-in-out, left .25s ease-in-out;
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+
+            &:nth-child(1) {
+              top: $rem8;
+            }
+
+            &:nth-child(2), &:nth-child(3) {
+              top: $rem24;
+            }
+
+            &:nth-child(4) {
+              top: $rem40;
+            }
+          }
+
+          &.open {
+            span {
+              &:nth-child(1), &:nth-child(4) {
+                top: $rem24;
+                width: 0%;
+                left: 50%;
+              }
+
+              &:nth-child(2) {
+                -webkit-transform: rotate(45deg);
+                -moz-transform: rotate(45deg);
+                -o-transform: rotate(45deg);
+                transform: rotate(45deg);
+              }
+
+              &:nth-child(3) {
+                -webkit-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .absoluteMenu {
+      z-index: 100;
+      position: absolute;
+      left: 0;
+      top: -500px;
+      width: 100%;
+      background: $white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: $rem16 0;
+      box-shadow: 0 2px 4px -4px $midnight-80;
+      transition: top 0.5s;
+
+      &.open {
+        top: $rem64;
+      }
+
+      .navitem {
+        margin: $rem16 0;
       }
     }
   }
 
   .content {
+    height: 100vh;
+    overflow-y: auto;
     .contentBlock {
       height: $rem800;
+
+      @media only screen and (max-width: $mediaPhones) {
+        height: unset;
+      }
 
       &.home {
         height: $rem880;
         box-sizing: border-box;
         padding: $rem160 $rem96 $rem32 $rem248;
+        margin-top: $rem85;
         background: $midnight;
         position: relative;
         display: flex;
@@ -33,16 +171,32 @@ body {
         align-items: self-start;
         overflow: hidden;
 
+        @media only screen and (max-width: $mediaPhones) {
+          padding: 0 $rem32;
+          align-items: center;
+        }
+
         .copperCLogo {
           position: absolute;
           top: $rem112;
           left: $rem72;
+          display: block;
+          height: auto;
+          width: auto;
+
+          @media only screen and (max-width: $mediaPhones) {
+            left: calc(50% - 128px);
+          }
         }
 
         .homeText {
           align-self: center;
-          z-index: 1;
           padding: $rem88 $rem48 0 0;
+          z-index: 1;
+
+          @media only screen and (max-width: $mediaPhones) {
+            padding: 0;
+          }
 
           .goBeyond {
             color: $white;
@@ -58,11 +212,29 @@ body {
 
           .buttonWrap {
             margin-top: $rem104;
+
+            @media only screen and (max-width: $mediaPhones) {
+              input {
+                display: none;
+              }
+
+              button {
+                margin: 0 auto;
+              }
+            }
           }
         }
 
         .homeImage {
-          width: 440px;
+          display: block;
+          width: $rem440;
+          height: auto;
+          padding-top: 100%;
+          transition: padding 1s;
+
+          @media only screen and (max-width: $mediaPhones) {
+            display: none;
+          }
         }
       }
 
@@ -74,22 +246,38 @@ body {
         justify-content: space-between;
         align-items: center;
         box-sizing: border-box;
+        flex-wrap: wrap;
+
+        @media only screen and (max-width: $mediaPhones) {
+          padding: $rem32;
+          justify-content: center;
+        }
 
         .abePoint {
           position: absolute;
           top: $rem120;
           left: 0;
+          display: block;
+          width: $rem248;
+          height: auto;
+
+          @media only screen and (max-width: $mediaPhones) {
+            display: none;
+          }
         }
 
         .featureText {
           flex: 1 1 50%;
           padding-right: $rem72;
           box-sizing: border-box;
+
+          @media only screen and (max-width: $mediaPhones) {
+            padding: 0 0 $rem16 0;
+          }
         }
 
         .featureItems {
           flex: 1 1 50%;
-          height: 100%;
           padding: $rem24;
           box-sizing: border-box;
           background: $realWhite;
@@ -100,14 +288,26 @@ body {
           justify-content: space-between;
           align-items: flex-start;
 
+          @media only screen and (max-width: $mediaPhones) {
+            padding: $rem12;
+            flex: unset;
+          }
+
           .featureItem {
             padding: $rem24 0;
             display: flex;
             justify-content: flex-start;
             align-items: self-start;
 
+            @media only screen and (max-width: $mediaPhones) {
+              padding: $rem12 0;
+            }
+
             .iconImg {
               padding-right: $rem24;
+              display: block;
+              width: $rem48;
+              height: auto;
             }
 
             .iconText {
@@ -129,10 +329,21 @@ body {
         padding: $rem48 0;
         position: relative;
 
+        @media only screen and (max-width: $mediaPhones) {
+          padding: $rem32;
+        }
+
         .abeSign {
           position: absolute;
           right: $rem48;
           bottom: $rem160;
+          display: block;
+          width: $rem400;
+          height: auto;
+
+          @media only screen and (max-width: $mediaPhones) {
+            display: none;
+          }
         }
 
         .safetySecurity {
@@ -146,11 +357,21 @@ body {
           box-sizing: border-box;
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
+          justify-content: space-around;
           align-items: center;
 
+          @media only screen and (max-width: $mediaPhones) {
+            padding: $rem24;
+          }
+
           .securityItem {
-            margin: $rem18 0;
+            text-align: center;
+              img {
+                width: $rem48;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+              }
 
             h2 {
               padding: $rem12 0;
@@ -165,14 +386,19 @@ body {
       }
 
       &.testimonials {
-        height: $rem604;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-wrap: wrap-reverse;
+        height: $rem604;
+
+        @media only screen and (max-width: $mediaPhones) {
+          height: unset;
+        }
 
         .left {
           flex: 1 1 50%;
-          height: 100%;
+          height: $rem604;
           background: $midnight;
           text-align: center;
           color: $white;
@@ -184,6 +410,10 @@ body {
           .flexContainer {
             padding-top: $rem96;
 
+            @media only screen and (max-width: $mediaPhones) {
+              padding: $rem72 $rem32 $rem72 $rem32;
+            }
+
             .join {
               font-size: $rem48;
               font-weight: $light;
@@ -191,6 +421,10 @@ body {
 
             .fivestar {
               padding: $rem32 0 $rem24;
+              width: auto;
+              height: auto;
+              display: block;
+              margin: 0 auto;
             }
 
             .appStoreIcons {
@@ -201,8 +435,11 @@ body {
 
               .appStoreLink {
                 img {
+                  cursor: pointer;
+                  display: block;
                   padding: 0 $rem6;
                   height: $rem48;
+                  width: auto;
                 }
               }
             }
@@ -211,43 +448,115 @@ body {
 
         .right {
           flex: 1 1 50%;
-          height: 100%;
+          height: $rem604;
           background: $violet;
-          color: $white;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: $rem16 $rem24 0 $rem120;
-          box-sizing: border-box;
+          position: relative;
+          overflow-y: hidden;
+          overflow-x: hidden;
 
-          .flexContainer {
-            position: relative;
+          .testimonialCarousel {
+            height: 100%;
+            color: $white;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            overflow-y: hidden;
+            overflow-x: hidden;
 
-            .testimonial {
-              font-size: $rem36;
-            }
-            .quote {
-              position: absolute;
-              left: -$rem64;
-              top: 0;
-            }
-            .upsideDownQuote {
-              -moz-transform: rotateZ(180deg);
-              -webkit-transform: rotateZ(180deg);
-              transform: rotateZ(180deg);
-              display: inline;
+            &::-webkit-scrollbar {
+              display: none;
             }
 
-            .quoteBy {
-              margin: $rem16 0;
+            .flexContainer {
+              padding: $rem16 $rem24 0 $rem120;
+              box-sizing: border-box;
+              width: 100%;
+              height: 100%;
+              display: inline-flex;
+              justify-content: center;
+              align-items: center;
+              vertical-align: middle;
+              white-space: normal;
+
+              @media only screen and (max-width: $mediaPhones) {
+                padding: $rem32 $rem48 $rem32 $rem96;
+              }
+
+              .wrapper {
+                position: relative;
+
+                .testimonial {
+                  font-size: $rem36;
+
+                  @media only screen and (max-width: $mediaPhones) {
+                    font-size: $rem24;
+                  }
+                }
+
+                .quote {
+                  position: absolute;
+                  left: -$rem64;
+                  top: 0;
+                  width: $rem48;
+                  height: auto;
+
+                  @media only screen and (max-width: $mediaPhones) {
+                    width: $rem36;
+                    left: -$rem48;
+                  }
+                }
+
+                .upsideDownQuote {
+                  -moz-transform: rotateZ(180deg);
+                  -webkit-transform: rotateZ(180deg);
+                  transform: rotateZ(180deg);
+                  display: inline;
+                  width: $rem48;
+                  height: auto;
+
+                  @media only screen and (max-width: $mediaPhones) {
+                    width: $rem36;
+                  }
+                }
+
+                .quoteBy {
+                  margin: $rem16 0;
+                }
+              }
+            }
+          }
+
+          .carouselDots {
+            position: absolute;
+            bottom: $rem32;
+            left: calc(50% - #{$rem32});
+            height: $rem12;
+
+            .dot {
+              display: inline-block;
+              margin: 0 $rem4;
+              width: $rem12;
+              height: $rem12;
+              border-radius: 50%;
+              background: $white-20;
+              transition: background 0.5s;
+
+              &.active {
+                background: $mint;
+              }
             }
           }
         }
+
       }
     }
 
     .accordion {
       padding: $rem36 $rem248;
+      box-sizing: border-box;
+
+      @media only screen and (max-width: $mediaPhones) {
+        padding: $rem32;
+      }
 
       &:last-child {
         background: yellow;
@@ -258,6 +567,10 @@ body {
         padding: $rem16 $rem48;
         border-bottom: $rem2 solid $midnight-20;
 
+        @media only screen and (max-width: $mediaPhones) {
+          padding: $rem16;
+        }
+
         .leafHeading {
           display: flex;
           justify-content: space-between;
@@ -265,6 +578,7 @@ body {
           margin: $rem16 0;
 
           .accordionToggle {
+            cursor: pointer;
             display: inline-block;
             min-width: $rem56;
             min-height: $rem56;
@@ -272,6 +586,10 @@ body {
             border-radius: 50%;
             box-sizing: border-box;
             transition: transform 0.5s;
+
+            @media only screen and (max-width: $mediaPhones) {
+              margin-left: $rem16;
+            }
 
             &.rotate {
               transform: rotateZ(90deg);
@@ -287,6 +605,7 @@ body {
                 display: inline-block;
                 width: $rem20;
                 border: $rem2 solid $fauxMidnight20;
+                background: $fauxMidnight20;
                 transition: 0.5s;
 
                 &.plus {
@@ -318,6 +637,12 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap-reverse;
+
+    @media only screen and (max-width: $mediaPhones) {
+      padding: $rem32;
+      height: unset;
+    }
 
     .footerNav{
       flex: 1 1 25%;
@@ -325,23 +650,27 @@ body {
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
-      //margin-right: $rem160;
+
+      @media only screen and (max-width: $mediaPhones) {
+        align-items: center;
+      }
 
       .navitem {
         color: $white;
         margin: $rem8 0;
+        cursor: pointer;
 
         &.space {
           margin-bottom: $rem48;
         }
+      }
 
+      .socialIcons {
+        cursor: pointer;
         &.inline {
           display: inline-block;
           vertical-align: middle;
         }
-      }
-
-      .socialIcons {
         .instaIcon {
           margin-left: $rem8;
         }
@@ -368,10 +697,22 @@ body {
 
       .buttonWrap {
         margin: $rem36 0 $rem96;
+
+        @media only screen and (max-width: $mediaPhones) {
+          input {
+            display: none;
+          }
+        }
       }
 
       .address {
         justify-self: flex-end;
+        color: $white;
+        text-decoration: none;
+        font-size: $rem16;
+        line-height: 1.5;
+        font-weight: $regular;
+        cursor: pointer;
       }
     }
   }

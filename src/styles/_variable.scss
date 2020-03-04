@@ -19,6 +19,7 @@ $mint-40: rgba(118, 255, 186, 0.4);
 $mint-20: rgba(118, 255, 186, 0.2);
 $realWhite: rgba(255, 255, 255, 1);
 $white: rgba(242, 251, 255, 1);
+$white-20: rgba(242, 251, 255, 0.2);
 
 //Sizes
 $rem2: 0.125rem;
@@ -55,6 +56,8 @@ $rem120: 7.5rem;
 $rem160: 10rem;
 $rem200: 12.5rem;
 $rem248: 15.5rem;
+$rem400: 25rem;
+$rem440: 27.5rem;
 $rem460: 28.75rem;
 $rem500: 31.25rem;
 $rem604: 37.75rem;
@@ -69,3 +72,5 @@ $bold: 700;
 $medium: 500;
 $regular: 300;
 $light: 100;
+
+$mediaPhones: 1000px;

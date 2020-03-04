@@ -11,7 +11,8 @@
 							if($footerNav) {
 								foreach($footerNav as $nav) {
 									$name = $nav['name'];
-									echo '<a class="navitem">' . $name . '</a>';
+									$value = $nav['value'];
+									echo '<a data-value="' . $value . '" class="navitem">' . $name . '</a>';
 								}
 							}
 							if($footerSocial) {
@@ -19,7 +20,7 @@
 									foreach($footerSocial as $social) {
 										$icon = $social['icon'];
 										$link = $social['link'];
-										if($link['url']) { echo '<a href="' . $link['url'] . '" class="navitem inline" target="' . $link['target'] . '">'; }
+										if($link['url']) { echo '<a href="' . $link['url'] . '" class="inline" target="' . $link['target'] . '">'; }
 											if($icon) { echo wp_get_attachment_image($icon['id'], 'small', false, array('class' => 'icon')); }
 										if($link['url']) { echo '</a>'; }
 									}
@@ -35,12 +36,12 @@
 							if($ctaHeading) { echo '<h3>' . $ctaHeading . '</h3>'; }
 							if($ctaContent) { echo '<p class="joinWaitlist">' . $ctaContent . '</p>'; }
 							if($ctaButton) {
-								echo '<div class="buttonWrap small">';
-									echo '<button>' .$ctaButton . '</button>';
+								echo '<form class="getTheApp"><div class="buttonWrap small">';
 									echo '<div class="inputWrap"><label class="inputLabel" for="enterPhoneTwo">enter your phone number</label><input id="enterPhoneTwo" class="fieldInput enterPhone" type="tel" /></div>';
-								echo '</div>';
+									echo '<button>' .$ctaButton . '</button>';
+								echo '</div></form>';
 							}
-							if($footerAddress) { echo '<p class="address">' . $footerAddress . '</p>'; }
+							if($footerAddress['url']) { echo '<a href="' . $footerAddress['url'] . '" class="address" target="' . $footerAddress['target'] . '">' . $footerAddress['title'] . '</a>'; }
 						echo '</div>';
 					}
 				?>
