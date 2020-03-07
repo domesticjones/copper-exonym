@@ -32,6 +32,33 @@
         </script>
 	</head>
 	<body itemscope itemtype="http://schema.org/WebPage">
-        <?php if(get_field('header_logo', 'options')) { echo '<div id="navbarLogo">' . get_field('header_logo', 'options') . '</div>'; } ?>
-        <div class="navbarWrapper"></div>
+		<div class="navbarWrapper">
+				<nav class="navbar">
+					<a data-value="home" class="navitem space" href="#home"><img src="<?php the_field('header_logo', 'options'); ?>" alt="copper" /></a>
+					<a data-value="features" class="navitem" href="#features">Features</a>
+					<a data-value="security" class="navitem" href="#security">Safety &amp; Security</a>
+					<a data-value="testimonials" class="navitem" href="#testimonials">Testimonials</a>
+					<a data-value="faq" class="navitem" href="#faq">FAQ</a>
+				</nav>
+				<nav class="navbar navbarMobile hidden">
+					<a data-value="home" class="navitem mobile" href="#home"><img src="<?php the_field('header_logo', 'options'); ?>" alt="copper" /></a>
+					<div class="buttonAndNav">
+						<div class="buttonWrap">
+							<button id="downloadOne" class="navitemButton button space">Download the App</button>
+						</div>
+						<div class="navburger">
+							<span></span>
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+					</div>
+				</nav>
+				<div class="absoluteMenu">
+					<a data-value="features" class="navitem" href="#features">Features</a>
+					<a data-value="security" class="navitem" href="#security">Safety &amp; Security</a>
+					<a data-value="testimonials" class="navitem" href="#testimonials">Testimonials</a>
+					<a data-value="faq" class="navitem" href="#faq">FAQ</a>
+				</div>
+		</div>
 		<div class="content">

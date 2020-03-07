@@ -1,4 +1,4 @@
-			<div class="footer">
+			<footer class="footer">
 				<?php
 					$footerLogo = get_field('footer_logo', 'options');
 					$footerNav = get_field('footer_navigation', 'options');
@@ -7,12 +7,12 @@
 					$footerAddress = get_field('footer_address', 'options');
 					if($footerLogo || $footerNav || $footerSocial) {
 						echo '<nav class="footerNav">';
-							if($footerLogo) { echo '<a class="navitem space">' . wp_get_attachment_image($footerLogo['id'], 'medium') . '</a>'; }
+							if($footerLogo) { echo '<a href="#home" class="navitem space">' . wp_get_attachment_image($footerLogo['id'], 'medium') . '</a>'; }
 							if($footerNav) {
 								foreach($footerNav as $nav) {
 									$name = $nav['name'];
 									$value = $nav['value'];
-									echo '<a data-value="' . $value . '" class="navitem">' . $name . '</a>';
+									echo '<a href="#' . $value . '" data-value="' . $value . '" class="navitem">' . $name . '</a>';
 								}
 							}
 							if($footerSocial) {
@@ -45,7 +45,7 @@
 						echo '</div>';
 					}
 				?>
-			</div>
+			</footer>
 		</div>
 		<?php wp_footer(); ?>
 	</body>

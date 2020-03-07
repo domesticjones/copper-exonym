@@ -1,3 +1,13 @@
+@font-face {
+  font-family: Walsheim;
+  src: url("fonts/GTWalsheimRegular.otf");
+}
+
+@font-face {
+  font-family: WalsheimBold;
+  src: url("fonts/GTWalsheimBold.otf");
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -22,6 +32,7 @@ a {
   line-height: 1.2;
   font-size: $rem16;
   font-weight: $bold;
+  text-decoration: none;
 
   &.button {
     line-height: 1.5;
@@ -39,6 +50,7 @@ h1 {
   font-size: $rem56;
   line-height: 1.2;
   font-weight: $bold;
+  font-family: $walsheimBold;
 }
 
 h2 {
@@ -84,14 +96,15 @@ p {
     }
 
     &.withIcon {
-
       & > * {
         display: inline-block;
         vertical-align: middle;
       }
       .icon {
+        display: inline-block;
         padding-left: $rem16;
         height: $rem24;
+        width: auto;
       }
     }
   }

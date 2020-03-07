@@ -52,6 +52,12 @@ module.exports = {
         include: paths.appSrc,
       },
       {
+          test: /\.(woff|woff2|eot|ttf|otf)$/,
+          use: [
+              'file-loader'
+          ]
+      },
+      {
         test: /.scss$/,
         use: [
           MiniCssExtractPlugin.loader,
@@ -70,12 +76,13 @@ module.exports = {
                     "Firefox ESR",
                     "not ie < 9" // React doesn't support IE8 anyway
                   ]
-                })
+                }),
               ]
             }
           },
           "sass-loader"
           ],
+
         }
     ],
   },

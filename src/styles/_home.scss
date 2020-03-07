@@ -1,8 +1,4 @@
 body {
-  #navbarLogo {
-    display: none;
-  }
-
   .navbarWrapper {
     position: relative;
 
@@ -19,7 +15,11 @@ body {
       left: 0;
       box-shadow: 0 2px 4px -4px $midnight-80;
 
-      &.mobile {
+      &.hidden {
+        display: none;
+      }
+
+      &.navbarMobile {
         justify-content: space-between;
 
         &.open {
@@ -56,6 +56,7 @@ body {
 
           @media only screen and (max-width: 340px) {
             font-size: $rem12;
+            padding: $rem12 $rem16;
           }
         }
 
@@ -632,7 +633,7 @@ body {
   .footer {
     height: $rem460;
     background: $midnight;
-    padding: $rem16 $rem248;
+    padding: $rem16 $rem248 $rem72;
     box-sizing: border-box;
     display: flex;
     justify-content: flex-start;
@@ -640,7 +641,7 @@ body {
     flex-wrap: wrap-reverse;
 
     @media only screen and (max-width: $mediaPhones) {
-      padding: $rem32;
+      padding: $rem32 $rem32 $rem72;
       height: unset;
     }
 
@@ -666,13 +667,13 @@ body {
       }
 
       .socialIcons {
-        cursor: pointer;
+        padding-top: $rem36;
         &.inline {
           display: inline-block;
           vertical-align: middle;
         }
-        img {
-          margin-right: $rem8;
+        .instaIcon {
+          margin-left: $rem8;
         }
       }
     }
