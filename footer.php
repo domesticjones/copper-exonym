@@ -7,7 +7,7 @@
 					$footerAddress = get_field('footer_address', 'options');
 					if($footerLogo || $footerNav || $footerSocial) {
 						echo '<nav class="footerNav">';
-							if($footerLogo) { echo '<a href="#home" class="navitem space">' . wp_get_attachment_image($footerLogo['id'], 'medium') . '</a>'; }
+							if($footerLogo) { echo '<a href="#home" class="navitem space">' . wp_get_attachment_image($footerLogo['id'], 'medium', false, array('class' => 'footerCopperLogo')) . '</a>'; }
 							if($footerNav) {
 								foreach($footerNav as $nav) {
 									$name = $nav['name'];
@@ -37,8 +37,8 @@
 							if($ctaContent) { echo '<p class="joinWaitlist">' . $ctaContent . '</p>'; }
 							if($ctaButton) {
 								echo '<form class="getTheApp"><div class="buttonWrap small">';
-									echo '<div class="inputWrap"><label class="inputLabel" for="enterPhoneTwo">enter your phone number</label><input id="enterPhoneTwo" class="fieldInput enterPhone" type="tel" /></div>';
-									echo '<button>' .$ctaButton . '</button>';
+									echo '<div class="inputWrap"><label class="inputLabel" for="enterPhoneTwo">Enter your phone number</label><input id="enterPhoneTwo" class="fieldInput enterPhone" type="tel" /></div>';
+									echo '<button>' . $ctaButton . '</button>';
 								echo '</div></form>';
 							}
 							if($footerAddress['url']) { echo '<a href="' . $footerAddress['url'] . '" class="address" target="' . $footerAddress['target'] . '">' . $footerAddress['title'] . '</a>'; }

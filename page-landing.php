@@ -16,8 +16,8 @@
               if($homeText['subtext']) { echo '<h3 class="goBeyondSubtext">' . $homeText['subtext'] . '</h3>'; }
               if($homeText['button']) {
                 echo '<form class="getTheApp"> <div class="buttonWrap">';
-                  echo '<div class="inputWrap"><label class="inputLabel" for="enterPhoneOne">enter your phone number</label><input id="enterPhoneOne" class="fieldInput enterPhone" type="tel" /></div>';
-                  echo '<button class="withIcon"><span>' . $homeText['button'] . '</span> ' . wp_get_attachment_image($homeText['icon']['id'], 'small', false, array('class' => 'icon')) . '</button>';
+                  echo '<div class="inputWrap"><label class="inputLabel" for="enterPhoneOne">Enter your phone number</label><input id="enterPhoneOne" class="fieldInput enterPhone" type="tel" /></div>';
+                  echo '<button class="withIcon">' . $homeText['button'] . wp_get_attachment_image($homeText['icon']['id'], 'small', false, array('class' => 'icon')) . '</button>';
                 echo '</div></form>';
               }
             echo '</div>';

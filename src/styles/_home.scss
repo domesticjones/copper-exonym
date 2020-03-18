@@ -15,6 +15,10 @@ body {
       left: 0;
       box-shadow: 0 2px 4px -4px $midnight-80;
 
+      .copperLogoNav {
+        width: $rem140;
+      }
+
       &.hidden {
         display: none;
       }
@@ -30,6 +34,7 @@ body {
       .navitem {
         margin: 0 $rem24;
         cursor: pointer;
+        font-size: $rem24;
 
         &.mobile {
           margin: 0 $rem24;
@@ -367,12 +372,12 @@ body {
 
           .securityItem {
             text-align: center;
-              img {
-                width: $rem48;
-                height: auto;
-                display: block;
-                margin: 0 auto;
-              }
+            img {
+              width: $rem48;
+              height: auto;
+              display: block;
+              margin: 0 auto;
+            }
 
             h2 {
               padding: $rem12 0;
@@ -422,7 +427,7 @@ body {
 
             .fivestar {
               padding: $rem32 0 $rem24;
-              width: auto;
+              width: 50%;
               height: auto;
               display: block;
               margin: 0 auto;
@@ -458,6 +463,7 @@ body {
           .testimonialCarousel {
             height: 100%;
             color: $white;
+            scroll-behavior: smooth;
             white-space: nowrap;
             -webkit-overflow-scrolling: touch;
             overflow-y: hidden;
@@ -529,14 +535,19 @@ body {
           .carouselDots {
             position: absolute;
             bottom: $rem32;
-            left: calc(50% - #{$rem32});
+            left: calc(50% - #{$rem40});
             height: $rem12;
+            width: $rem80;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
             .dot {
+              cursor: pointer;
               display: inline-block;
               margin: 0 $rem4;
-              width: $rem12;
-              height: $rem12;
+              width: $rem16;
+              height: $rem16;
               border-radius: 50%;
               background: $white-20;
               transition: background 0.5s;
@@ -625,6 +636,11 @@ body {
           height: 0;
           overflow: hidden;
           transition: height 0.5s;
+
+          .leafContent {
+            font-size: $rem24;
+            color: $midnight-80;
+          }
         }
       }
     }
@@ -661,19 +677,25 @@ body {
         margin: $rem8 0;
         cursor: pointer;
 
+        .footerCopperLogo {
+          width: $rem140;
+        }
+
         &.space {
           margin-bottom: $rem48;
         }
       }
 
       .socialIcons {
+        width: $rem72;
         padding-top: $rem36;
-        &.inline {
-          display: inline-block;
-          vertical-align: middle;
-        }
-        .instaIcon {
-          margin-left: $rem8;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .inline {
+          .icon {
+            width: $rem32;
+          }
         }
       }
     }

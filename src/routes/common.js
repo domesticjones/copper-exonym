@@ -1,196 +1,196 @@
 export default {
   init() {
-    window.addEventListener('resize', updateWindowDimensions);
-    updateWindowDimensions();
+      window.addEventListener('resize', updateWindowDimensions);
+      updateWindowDimensions();
 
-    addClickEvents();
+      addClickEvents();
 
-    function updateWindowDimensions() {
-        const html = document.documentElement;
-        const navBars = document.querySelectorAll('.navbar');
-        const navBarMobile = document.querySelector('.navbarMobile');
+      function updateWindowDimensions() {
+          const navBars = document.querySelectorAll('.navbar');
+          const navBarMobile = document.querySelector('.navbarMobile');
 
-        if(window.innerWidth < 1000) {
-            html.style.fontSize = '10px';
-            if(navBarMobile.classList.contains('hidden')) {
-                navBars.forEach((navBar) => {
-                   navBar.classList.toggle('hidden');
-                });
-            }
-        }
-        else {
-            if(!navBarMobile.classList.contains('hidden')) {
-                navBars.forEach((navBar) => {
-                        navBar.classList.toggle('hidden');
-                });
-            }
-        }
-        if(window.innerWidth < 1400) {
-            html.style.fontSize = '12px';
-        }
-    }
+          if(window.innerWidth < 1000) {
+              if(navBarMobile.classList.contains('hidden')) {
+                  navBars.forEach((navBar) => {
+                      navBar.classList.toggle('hidden');
+                  });
+              }
+          }
+          else {
+              if(!navBarMobile.classList.contains('hidden')) {
+                  navBars.forEach((navBar) => {
+                      navBar.classList.toggle('hidden');
+                  });
+              }
+          }
+      }
 
-    setTimeout(() => {
-        const homeImage  = document.querySelector('.homeImage');
-        homeImage.style.paddingTop = '0px';
-    }, 1500);
+      setTimeout(() => {
+          const homeImage  = document.querySelector('.homeImage');
+          homeImage.style.paddingTop = '0px';
+      }, 1500);
 
-    const faqToggles = document.querySelectorAll('.accordionToggle');
-    const getAppForms = document.querySelectorAll('.getTheApp');
-    const inputFields = document.querySelectorAll('.enterPhone');
-    const firstOpen = document.querySelector('.firstOpen');
-    firstOpen.parentNode.style.height = firstOpen.clientHeight + 'px';
+      const faqToggles = document.querySelectorAll('.accordionToggle');
+      const getAppForms = document.querySelectorAll('.getTheApp');
+      const inputFields = document.querySelectorAll('.enterPhone');
+      const firstOpen = document.querySelector('.firstOpen');
+      firstOpen.parentNode.style.height = firstOpen.clientHeight + 'px';
 
-    inputFields.forEach((field) => {
-        const inputLabels = document.querySelectorAll('.inputLabel');
-        field.addEventListener('focus', () => {
-            inputLabels.forEach((label) => label.style.display = 'none');
-        });
-    });
+      inputFields.forEach((field) => {
+          const inputLabels = document.querySelectorAll('.inputLabel');
+          field.addEventListener('focus', () => {
+              inputLabels.forEach((label) => label.style.display = 'none');
+          });
+      });
 
-    getAppForms.forEach((form) => {
-       getTheApp(form);
-    });
+      getAppForms.forEach((form) => {
+          getTheApp(form);
+      });
 
-    function addClickEvents() {
-        const navItems = document.querySelectorAll('.navitem');
-        const getAppButton = document.querySelector('.navitemButton');
-        const burger = document.querySelector('.navburger');
-        const mobileMenu = document.querySelector('.absoluteMenu');
-        const mobileNav = document.querySelector('.navbarMobile');
+      function addClickEvents() {
+          const navItems = document.querySelectorAll('.navitem');
+          const getAppButton = document.querySelector('.navitemButton');
+          const burger = document.querySelector('.navburger');
+          const mobileMenu = document.querySelector('.absoluteMenu');
+          const mobileNav = document.querySelector('.navbarMobile');
 
-        if(getAppButton)
-            getAppButton.addEventListener('click', () => {
-                openAppStore();
-            });
+          if(getAppButton)
+              getAppButton.addEventListener('click', () => {
+                  openAppStore();
+              });
 
-        if(burger)
-            burger.addEventListener('click', () => {
-                burger.classList.toggle('open');
-                mobileMenu.classList.toggle('open');
-                mobileNav.classList.toggle('open');
-            });
+          if(burger)
+              burger.addEventListener('click', () => {
+                  burger.classList.toggle('open');
+                  mobileMenu.classList.toggle('open');
+                  mobileNav.classList.toggle('open');
+              });
 
-        navItems.forEach((navItem) => {
+          navItems.forEach((navItem) => {
 
-            navItem.addEventListener('click', (e) => {
-                e.preventDefault();
+              navItem.addEventListener('click', (e) => {
+                  e.preventDefault();
 
-                const targetId = e.currentTarget.dataset.value;
-                const target = document.querySelector(`#${targetId}`);
-                const scrollTargetPosition = target.offsetTop - 64;
-                const viewPort = document.querySelector('.content');
+                  const targetId = e.currentTarget.dataset.value;
+                  const target = document.querySelector(`#${targetId}`);
+                  const scrollTargetPosition = target.offsetTop - 64;
+                  const viewPort = document.querySelector('.content');
 
-                if(burger && mobileMenu && mobileNav && burger.classList.contains('open')) {
-                    burger.classList.toggle('open');
-                    mobileMenu.classList.toggle('open');
-                    mobileNav.classList.toggle('open');
-                }
+                  if(burger && mobileMenu && mobileNav && burger.classList.contains('open')) {
+                      burger.classList.toggle('open');
+                      mobileMenu.classList.toggle('open');
+                      mobileNav.classList.toggle('open');
+                  }
 
-                viewPort.scroll({left: 0, top: scrollTargetPosition, behavior: 'smooth'});
-            })
-        });
-    }
+                  viewPort.scroll({left: 0, top: scrollTargetPosition, behavior: 'smooth'});
+              })
+          });
+      }
 
-    function getTheApp(form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
+      function getTheApp(form) {
+          form.addEventListener('submit', (e) => {
+              e.preventDefault();
 
-            if(window.innerWidth < 1000) {
-                openAppStore();
-            }
-            else {
-                const value = e.currentTarget.enterPhoneOne ? e.currentTarget.enterPhoneOne.value : e.currentTarget.enterPhoneTwo.value;
+              if(window.innerWidth < 1000) {
+                  openAppStore();
+              }
+              else {
+                  const value = e.currentTarget.enterPhoneOne ? e.currentTarget.enterPhoneOne.value : e.currentTarget.enterPhoneTwo.value;
 
-                if(!value)
-                    return alert('Please enter your phone number to Get Copper!');
+                  if(!value)
+                      return alert('Please enter your phone number to Get Copper!');
 
-                sendSMS(e.currentTarget);
-            }
-        })
-    }
+                  sendSMS(e.currentTarget);
+              }
+          })
+      }
 
-    function openAppStore() {
-        const userAgent = navigator.userAgent || navigator.vendor;
+      function openAppStore() {
+          const userAgent = navigator.userAgent || navigator.vendor;
 
-        if (/android/i.test(userAgent))
-            window.open('https://play.google.com/store/apps/details?id=com.getcopper.copper', '_blank');
-        else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream)
-            window.open('https://itunes.apple.com/us/app/id1486647561?ls=1', '_blank');
-        else
-            alert('Only available on Apple App Store and Android App Store.');
+          if (/android/i.test(userAgent))
+              window.open('https://play.google.com/store/apps/details?id=com.getcopper.copper', '_blank');
+          else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream)
+              window.open('https://itunes.apple.com/us/app/id1486647561?ls=1', '_blank');
+          else
+              alert('Only available on Apple App Store and Android App Store.');
 
-    }
+      }
 
-    function openFAQ(toggleElem, clickedIndex) {
-        faqToggles.forEach((toggle, index) => {
-            if(clickedIndex !== index) {
-                toggle.classList.remove('rotate');
-                const line = toggle.children[0].children[0];
-                line.classList.remove('rotate');
-                const openWrapper = toggle.parentNode.parentNode.querySelector('.leafWrapper');
-                openWrapper.style.height = '0px';
-            }
-        });
+      function openFAQ(toggleElem, clickedIndex) {
+          faqToggles.forEach((toggle, index) => {
+              if(clickedIndex !== index) {
+                  toggle.classList.remove('rotate');
+                  const line = toggle.children[0].children[0];
+                  line.classList.remove('rotate');
+                  const openWrapper = toggle.parentNode.parentNode.querySelector('.leafWrapper');
+                  openWrapper.style.height = '0px';
+              }
+          });
 
-        toggleElem.classList.toggle('rotate');
-        const plusLine = toggleElem.children[0].children[0];
-        plusLine.classList.toggle('rotate');
-        const leafWrapper = toggleElem.parentNode.parentNode.querySelector('.leafWrapper');
-        const leafContent = leafWrapper.querySelector('.leafContent');
-        const leafWrapperCurrentHeight = parseInt(leafWrapper.style.height.replace('px', ''));
+          toggleElem.classList.toggle('rotate');
+          const plusLine = toggleElem.children[0].children[0];
+          plusLine.classList.toggle('rotate');
+          const leafWrapper = toggleElem.parentNode.parentNode.querySelector('.leafWrapper');
+          const leafContent = leafWrapper.querySelector('.leafContent');
+          const leafWrapperCurrentHeight = parseInt(leafWrapper.style.height.replace('px', ''));
 
-        leafWrapper.style.height = leafWrapperCurrentHeight === leafContent.clientHeight ? '0px' : leafContent.clientHeight + 'px';
-    }
+          leafWrapper.style.height = leafWrapperCurrentHeight === leafContent.clientHeight ? '0px' : leafContent.clientHeight + 'px';
+      }
 
-    faqToggles.forEach((toggle, index) => {
-        toggle.addEventListener('click', () => {openFAQ(toggle, index)});
-    });
+      faqToggles.forEach((toggle, index) => {
+          toggle.addEventListener('click', () => {openFAQ(toggle, index)});
+      });
 
-    const testimonialCarousel = document.querySelector('.testimonialCarousel');
-    let scrollIncrement = 0;
+      const testimonialCarousel = document.querySelector('.testimonialCarousel');
+      const carouselDots = document.querySelectorAll('.dot');
+      let scrollIncrement = 0;
 
-    setInterval(() =>{
-        const containerWidth = testimonialCarousel.clientWidth;
-        let scrollAmount = 0;
+      const autoScroll = setInterval(() =>{
+          const scrollWidth = testimonialCarousel.clientWidth;
 
-        toggleDots();
-        const slideTimer = setInterval(function(){
-            if(scrollIncrement === 2) {
-                testimonialCarousel.scrollLeft -= 60;
-                scrollAmount += 60;
+          toggleDots();
+          if(scrollIncrement === 2) {
+              testimonialCarousel.scrollLeft = 0;
+              incrementCount();
+          }
+          else {
+              testimonialCarousel.scrollLeft += scrollWidth;
+              incrementCount();
+          }
+      }, 8000);
 
-                if(scrollAmount >= containerWidth * 3){
-                    window.clearInterval(slideTimer);
-                    incrementCount();
-                }
-            }
-            else {
-                testimonialCarousel.scrollLeft += 30;
-                scrollAmount += 30;
+      function incrementCount() {
+          scrollIncrement = scrollIncrement === 2 ? 0 : scrollIncrement + 1;
+      }
 
-                if(scrollAmount >= containerWidth){
-                    window.clearInterval(slideTimer);
-                    incrementCount();
-                }
-            }
+      function toggleDots(index) {
+          if(typeof index === 'number') {
+              carouselDots[scrollIncrement].classList.toggle('active');
+              carouselDots[index].classList.toggle('active');
+              scrollIncrement = index;
+          }
+          else {
+              carouselDots[scrollIncrement].classList.toggle('active');
 
-        }, 25);
-    }, 8000);
+              if(scrollIncrement === 2)
+                  carouselDots[0].classList.toggle('active');
+              else
+                  carouselDots[scrollIncrement + 1].classList.toggle('active');
+          }
+      }
 
-    function incrementCount() {
-        scrollIncrement = scrollIncrement === 2 ? 0 : scrollIncrement + 1;
-    }
+      carouselDots.forEach((dot, index) => {
+          dot.addEventListener('click', () => {
+              window.clearInterval(autoScroll);
+              const scrollWidth = testimonialCarousel.clientWidth;
 
-    function toggleDots() {
-        const carouselDots = document.querySelectorAll('.dot');
-        carouselDots[scrollIncrement].classList.toggle('active');
+              toggleDots(index);
+              testimonialCarousel.scrollLeft = index * scrollWidth;
+          })
+      });
 
-        if(scrollIncrement === 2)
-            carouselDots[0].classList.toggle('active');
-        else
-            carouselDots[scrollIncrement + 1].classList.toggle('active');
-    }
+
   },
   finalize() {
   },

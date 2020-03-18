@@ -24,6 +24,10 @@ html, body {
   margin: 0;
   box-sizing: border-box;
   font-family: $walsheim;
+
+  @media only screen and (max-width: 1400px) {
+    font-size: 12px;
+  }
 }
 
 a {
@@ -38,6 +42,7 @@ a {
     line-height: 1.5;
     font-size: $rem12;
     color: $white;
+    font-family: $walsheim;
     font-weight: $light;
     padding: $rem8 $rem16 !important;
     background: $violet;
@@ -81,15 +86,16 @@ p {
     box-sizing: border-box;
     display: inline-block;
     vertical-align: middle;
-    font-size: $rem18;
-    line-height: 1.2;
-    color: $white;
-    font-weight: $light;
     background: $violet;
     padding: $rem16 $rem28;
     border-radius: $rem28;
     margin-left: $rem36;
     cursor: pointer;
+    font-size: $rem18;
+    line-height: 1.2;
+    color: $white;
+    font-weight: $light;
+    font-family: $walsheim;
 
     @media only screen and (max-width: $mediaPhones) {
       margin-left: 0;
@@ -116,11 +122,14 @@ p {
     position: relative;
 
     label {
+      display: inline-block;
+      width: 100%;
       position: absolute;
-      top: $rem22;
-      left: $rem28;
+      top: calc(50% - #{$rem8});
+      left: 0;
+      text-align: center;
       font-size: $rem16;
-      line-height: 1.1;
+      line-height: 1;
       font-weight: $light;
       color: $midnight;
 
@@ -139,7 +148,7 @@ p {
       font-size: $rem18;
       line-height: 1.2;
       font-weight: $light;
-      padding: $rem16 $rem64 $rem16 $rem28;
+      padding: $rem14 $rem48;
       border-radius: $rem28;
     }
   }
@@ -150,13 +159,8 @@ p {
     }
 
     .inputWrap {
-      label {
-        top: $rem16;
-        left: $rem28;
-      }
-
       input {
-        padding: $rem10 $rem22;
+        padding: $rem8 $rem22;
       }
     }
 
