@@ -678,7 +678,9 @@ body {
         cursor: pointer;
 
         .footerCopperLogo {
+          display: block;
           width: $rem140;
+          height: auto;
         }
 
         &.space {
@@ -694,7 +696,9 @@ body {
         align-items: center;
         .inline {
           .icon {
+            display: block;
             width: $rem32;
+            height: auto;
           }
         }
       }
